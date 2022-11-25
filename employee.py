@@ -283,7 +283,7 @@ class Employee:
             messagebox.showerror('Error','All fields are required')
         else:
             try:
-                conn=mysql.connector.connect(host='localhost',username='root',password='Root',database='mydata')
+                conn=mysql.connector.connect(host='localhost',username='root',password='123456',database='mydata')
                 my_cursor=conn.cursor()
                 my_cursor.execute('insert into employee1 values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)',(
                                                                                                         self.var_Department.get(),
@@ -311,7 +311,7 @@ class Employee:
 
     # fetch Data
     def fetch_data(self):
-        conn=mysql.connector.connect(host='localhost',username='root',password='Root',database='mydata')
+        conn=mysql.connector.connect(host='localhost',username='root',password='123456',database='mydata')
         my_cursor=conn.cursor()
         my_cursor.execute('select * from employee1')
         data=my_cursor.fetchall()
@@ -354,7 +354,7 @@ class Employee:
             try:
                 update=messagebox.askyesno('update','Are sure update this employee data')
                 if update>0:
-                    conn=mysql.connector.connect(host='localhost',username='root',password='Root',database='mydata')
+                    conn=mysql.connector.connect(host='localhost',username='root',password='123456',database='mydata')
                     my_cursor=conn.cursor()
                     my_cursor.execute('update employee1 set Department=%s,Name=%s,Designation=%s,Email=%s,Employee_ID=%s,Married_Status=%s,DOB=%s,DOJ=%s,ID_Proof_Type=%s,Gender=%s,Phone=%s,Country=%s,Salary=%s WHERE ID_Proof=%s',(
                                                                                                                                                                                                                                     
@@ -395,7 +395,7 @@ class Employee:
             try:
                 Delete=messagebox.askyesno('Delete','Are you sure delete this employee',parent=self.root)
                 if Delete>0:
-                    conn=mysql.connector.connect(host='localhost',username='root',password='Root',database='mydata')
+                    conn=mysql.connector.connect(host='localhost',username='root',password='123456',database='mydata')
                     my_cursor=conn.cursor()
                     sql='delete from employee1 where id_proof=%s'
                     value=(self.var_ID_Proof.get(),)
@@ -434,7 +434,7 @@ class Employee:
             messagebox.showerror('Error','Please select option')
         else:
             try:
-                conn=mysql.connector.connect(host='localhost',username='root',password='Root',database='mydata')
+                conn=mysql.connector.connect(host='localhost',username='root',password='123456',database='mydata')
                 my_cursor=conn.cursor()
                 my_cursor.execute('SELECT * from employee1 where ' +str(self.var_com_search.get())+" LIKE '%"+str(self.var_search.get()+"%'"))
                 rows=my_cursor.fetchall()
